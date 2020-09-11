@@ -98,34 +98,38 @@ var tamano = 0;
      },600000)
 
 //---------Consultar tabla previamente creada --------------
-// router.get('/:id', async (req,res) =>{
-//     const userestado = await User.findOne({
-//         where:{ estado: req.params.id}
-//     });
-//     if(user === null){
-//         console.log("No ha sido encontrado");
-//     }else{
-//        return  res.send(user.id);
-//     }
+router.get('/estado/:id', async (req,res) =>{
+    const userestado = await User.findOne({
+        where:{ estado: req.params.id}
+    });
+    if(user === null){
+        console.log("No ha sido encontrado");
+    }else{
+       return  res.send(user.id);
+    }
+})
 
-//     const usergenero = await User.findOne({
-//         where:{ sexo: req.params.id}
-//     });
-//     if(user === null){
-//         console.log("No ha sido encontrado");
-//     }else{
-//         return res.send(user.id);
-//     }
+router.get('/sexo/:id', async (req,res) =>{
+    const usergenero = await User.findOne({
+        where:{ sexo: req.params.id}
+    });
+    if(user === null){
+        console.log("No ha sido encontrado");
+    }else{
+        return res.send(user.id);
+    }
+})
 
-//     const userciudad = await User.findOne({
-//         where:{ ciudad_ub: req.params.id}
-//     });
-//     if(user === null){
-//         console.log("No ha sido encontrado");
-//     }else{
-//         return res.send(user.id);
-//     }
-// })
+router.get('/ciudad/:id', async (req,res) =>{
+    const userciudad = await User.findOne({
+        where:{ ciudad_ub: req.params.id}
+    });
+    if(user === null){
+        console.log("No ha sido encontrado");
+    }else{
+        return res.send(user.id);
+    }
 
+})
 
 module.exports = router;
